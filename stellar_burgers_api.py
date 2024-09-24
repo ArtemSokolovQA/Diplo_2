@@ -28,3 +28,20 @@ class StellarBurgersApi:
             "email": email,
             "password": password
         })
+
+    @staticmethod
+    @allure.step('Получить информацию о пользователе')
+    def get_user_info(token):
+        return (requests.get(f'{config.Urls.BASE_URL}{config.Urls.GET_USER_INFO_PATH}', headers={
+            'Authorization': token
+        }))
+
+    @staticmethod
+    @allure.step('Изменить информацию о пользователе')
+    def edit_user_info(body, token):
+        return requests.patch(f'{config.Urls.BASE_URL}{config.Urls.EDIT_USER_INFO_PATH}', headers={
+            'Authorization': token
+        },
+                              json=body)
+
+
