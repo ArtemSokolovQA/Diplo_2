@@ -59,3 +59,16 @@ class StellarBurgersApi:
         return requests.get(f'{config.Urls.BASE_URL}{config.Urls.GET_INGREDIENTS_PATH}', headers={
             'Authorization': token
         })
+
+
+    @staticmethod
+    def get_all_orders(token):
+        return requests.get(f'{config.Urls.BASE_URL}{config.Urls.GET_ALL_ORDERS_PATH}', headers={
+            'Authorization': token
+        })
+
+    @staticmethod
+    def get_user_orders(token):
+        return requests.get(f'{config.Urls.BASE_URL}{config.Urls.GET_USER_ORDERS_PATH}', headers={
+            'Authorization': token
+        })

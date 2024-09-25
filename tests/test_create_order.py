@@ -19,8 +19,7 @@ class TestCreateOrder:
         assert create_order_response.json()['order']['ingredients'][0]['_id'] == data.OrderData.create_order_data['ingredients'][0]
 
     @allure.title('Возможно создать заказ, если пользователь не авторизован')
-    def test_create_order_not_authorized(self, register_and_delete_user):
-        register_user = register_and_delete_user
+    def test_create_order_not_authorized(self):
         access_token = ''
 
         create_order_response = StellarBurgersApi.create_order(access_token, data.OrderData.create_order_data)
@@ -47,7 +46,6 @@ class TestCreateOrder:
         access_token = register_and_delete_user.json()['accessToken']
 
         create_order_response = StellarBurgersApi.create_order(access_token, data.OrderData.invalid_ingredient_hash_data)
-        print(create_order_response.json())
         assert create_order_response.status_code == 500
 
 

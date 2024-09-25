@@ -10,6 +10,9 @@ class Urls:
     EDIT_USER_INFO_PATH = '/api/auth/user'
     CREATE_ORDER_PATH = '/api/orders'
     GET_INGREDIENTS_PATH = '/api/ingredients'
+    GET_ALL_ORDERS_PATH = '/api/orders/all'
+    GET_USER_ORDERS_PATH = '/api/orders'
+
 
 class ResponseMessages:
 
@@ -18,3 +21,4 @@ class ResponseMessages:
     INCORRECT_EMAIL_OR_PASSWORD_ERROR_TEXT = 'email or password are incorrect'
     SHOULD_BE_AUTHORIZED_TO_EDIT_USER_INFO_ERROR_TEXT = 'You should be authorised'
     CREATE_ORDER_INGREDIENTS_REQUIRED_ERROR_TEXT = 'Ingredient ids must be provided'
+    AUTH_REQUIRED_TO_GET_USER_ORDERS_ERROR_TEXT = 'You should be authorised'
