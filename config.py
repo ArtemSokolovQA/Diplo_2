@@ -8,7 +8,8 @@ class Urls:
     AUTH_PATH = '/api/auth/login'
     GET_USER_INFO_PATH = '/api/auth/user'
     EDIT_USER_INFO_PATH = '/api/auth/user'
-
+    CREATE_ORDER_PATH = '/api/orders'
+    GET_INGREDIENTS_PATH = '/api/ingredients'
 
 class ResponseMessages:
 
@@ -16,3 +17,4 @@ class ResponseMessages:
     MISSING_REQUIRED_FILED_ERROR_TEXT = 'Email, password and name are required fields'
     INCORRECT_EMAIL_OR_PASSWORD_ERROR_TEXT = 'email or password are incorrect'
     SHOULD_BE_AUTHORIZED_TO_EDIT_USER_INFO_ERROR_TEXT = 'You should be authorised'
+    CREATE_ORDER_INGREDIENTS_REQUIRED_ERROR_TEXT = 'Ingredient ids must be provided'

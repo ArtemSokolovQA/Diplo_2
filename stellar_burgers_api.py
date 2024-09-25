@@ -45,3 +45,17 @@ class StellarBurgersApi:
                               json=body)
 
 
+    @staticmethod
+    @allure.step('Создать заказ')
+    def create_order(token, body):
+        return requests.post(f'{config.Urls.BASE_URL}{config.Urls.CREATE_ORDER_PATH}', headers={
+            'Authorization': token
+        },
+                              json=body)
+
+    @staticmethod
+    @allure.step('Получить список ингредиентов')
+    def get_ingredients(token):
+        return requests.get(f'{config.Urls.BASE_URL}{config.Urls.GET_INGREDIENTS_PATH}', headers={
+            'Authorization': token
+        })

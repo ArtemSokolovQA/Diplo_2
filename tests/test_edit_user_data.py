@@ -35,6 +35,7 @@ class TestEditUserInfo:
         assert edit_user_name.status_code == 200
         assert edited_user_name == f'test_{user_name}'
 
+    @allure.title('Нельзя поменять email, если юзер не авторизован')
     def test_impossible_to_edit_user_email_not_authorized(self, register_and_delete_user):
         register_user = register_and_delete_user
         access_token = register_and_delete_user.json()['accessToken']
@@ -49,6 +50,7 @@ class TestEditUserInfo:
         assert edited_user_email == user_email
         assert edit_user_email.json()['message'] == config.ResponseMessages.SHOULD_BE_AUTHORIZED_TO_EDIT_USER_INFO_ERROR_TEXT
 
+    @allure.title('Нельзя поменять username без авторизации')
     def test_impossible_to_edit_user_name_not_authorized(self, register_and_delete_user):
         register_user = register_and_delete_user
         access_token = register_and_delete_user.json()['accessToken']
@@ -62,6 +64,8 @@ class TestEditUserInfo:
         assert edit_user_name.status_code == 401
         assert edited_user_name == user_name
         assert edit_user_name.json()['message'] == config.ResponseMessages.SHOULD_BE_AUTHORIZED_TO_EDIT_USER_INFO_ERROR_TEXT
+
+
 
 
 
