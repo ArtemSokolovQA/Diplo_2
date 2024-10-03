@@ -15,6 +15,7 @@ class TestAuthorization:
         assert response.json()['success']
         assert data.UserData.registered_user_data['email'].lower() in response.json()['user']['email']
 
+    @allure.title('Невозможно войти в аккаунт с неверным логином и паролем')
     def test_auth_with_wrong_password_and_wrong_email(self):
         response = StellarBurgersApi.auth(f'-{data.UserData.registered_user_data['email']}',
                                           f'-{data.UserData.registered_user_data['password']}')

@@ -1,5 +1,4 @@
 import allure
-
 import config
 from conftest import register_and_delete_user
 import data
